@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvaliaTCC - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<div class="logo-login">AvaliaTCC</div>
+
+<body id="body-login">
+
+<div class="container" id="container">
+
+    <h1>Área de login</h1>
+        
+            <form action="/submit"method= 'post'>
+                <div class="input-group"><label for="matricula"></label>
+                    <div class="input-field">
+                    <input type="text" id="matricula" name="matricula" placeholder="E-mail" required>
+                    <i class='bx  bx-user'></i>
+                </div>
+                    <div class="input-group">
+                        <label for="senha"></label>
+                        <div class="input-field">
+                        <input type="password" name="senha" id="senha" placeholder="Senha"required>
+                        <i class='bx  bx-lock'></i>
+                    </div>
+
+                <div class="options">
+                    <label><input type="checkbox"name="remember"> Lembre-se de mim</label>
+                    <a href="pag03.html" class="forgot">Esqueci minha senha</a>
+                </div>
+
+                <button type="submit" id="button">Entrar</button>
+            </form>
+            <p>Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+        </div>
+
+</div>
+
+</body>
+</html>

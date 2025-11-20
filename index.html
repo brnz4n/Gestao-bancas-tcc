@@ -3,52 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGB - Login</title>
-    <link rel="shortcut icon" href="imagens/favicon.png">
+    <title>AvaliaTCC - Início</title>
     <link rel="stylesheet" href="style.css">
-    
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    <header class = "cabeçalho">
-            <nav class="navbar">
-                <a href="#">logo</a>
-                <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#" class="btn btn-laranja">Login</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#" class="btn btn-laranja">Cadastro</a></li></ul>
-            </nav>
-    </header>
 
-    <main class="login-wrapper">
-    <a href="index.html"><img src="imagens/favicon sigac ofc.png" class="logo-fixed"></a>
-   <div class="container" id="container">
-    <h1>Login</h1>
-            <form action="/submit"method= 'post'>
-                <div class="input-group"><label for="matricula"></label>
-                    <div class="input-field">
-                    <input type="text" id="matricula" name="matricula" placeholder="Login" required>
-                    <i class='bx  bx-user'></i>
-                </div>
-                    <div class="input-group">
-                        <label for="senha"></label>
-                        <div class="input-field">
-                        <input type="password" name="senha" id="senha" placeholder="Senha"required>
-                        <i class='bx  bx-lock'></i>
-                    </div>
+    <nav>
+        <div class="logo">AvaliaTCC</div>
 
-                <div class="options">
-                    <label><input type="checkbox"name="remember"> Lembre-se de mim</label>
-                    <a href="pag01.html" class="forgot">Esqueci minha senha</a>
-                </div>
-
-                <button type="submit">Entrar</button>
-            </form> 
-            <p>Ainda não tem uma conta? <a href="pag02.html">Cadastre-se aqui</a></p>
+        <div class="botoes-acao">
+            <a href="#">Plataforma</a>
+            <a href="#">Recursos</a>
+            <a href="#">Sobre</a>
+            <a href="login.html" style="font-weight: 600; color: #2563EB;">Login</a>
         </div>
-</div>
+    </nav>
+
+    <section class="hero">
+        <h1>Simplifique a gestão<br>da sua Banca de TCC</h1>
+        <h2>A plataforma oficial para agendamento, avaliação e registro de teses do curso de Engenharia da Computação.</h2>
+
+        <div class="hero-buttons">
+            <a href="login.html" class="btn-primario">Entrar na Plataforma</a>
+            <a href="cronograma.html" class="btn-outline">Ver Cronograma</a>
+        </div>
+    </section>
 
 </body>
 </html>
