@@ -4,63 +4,193 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AvaliaTCC - Cronograma</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" sizes="32x32" href="imagens/AvaliaTCC icon.png">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <link rel="stylesheet" href="style.css">
-    <div class="main-content">
-    <header class="page-header">
-    <div class="logo">AvaliaTCC</div>
-        <div>
-            <h2>Cronograma de Bancas</h2>
-            <p>Confira as datas e locais das defesas de TCC.</p>
-        </div>
-        <a href="cadastro-ouvinte.html" class="btn-primary">
-            <i class='bx bx-user-plus'></i> Quero ser Ouvinte
-        </a>
-    </header>
+    <div class="container-fluid px-5">
+            <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2 anime-start" href="index.html">
+                <img src="imagens/AvaliaTCC LOGO.png" alt="logo_sigac" height="70"></i>
+            </a>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Buscar por aluno ou tema">
-        <input type="date">
-        <button><i class='bx bx-search'></i></button>
-    </div>
+        <div class="container mt-5 pt-5 pb-5">
+            <!-- botão de voltar -->
+         <div class="row pt-4 mb-4 align-items-center anime-start" style="transition-delay: 0,1s;">
+            <div class="col-auto">
+                <a href="index.html" class="btn btn-outline-secondary rounded-circle" title="Voltar">
+                    <i class='bx bx-arrow-back'></i>
+                </a>
+            </div>
 
-    <div class="schedule-container">
+            <div class="col">
+                <h2 class="fw-bold text-dark mb-0">Cronograma de Bancas</h2>
+                <p class=" mb-0">Confira as datas e locais das defesas de TCC</p>
+            </div>
 
-    <div class="day-group">
-        <div class="date-header">
-            <span class="day-number">20</span>
-            <div class="day-info">
-                <span class="day-week">Segunda-feira</span>
-                <span class="month">Novembro</span>
+            <div class="col text-end">
+                <a href="#" class="btn btn-custom-primary mt-4 mt-md-3">
+                    <i class='bx bx-user-plus'></i> Quero ser Ouvinte
+                </a>
             </div>
         </div>
 
-        <div class="events-list">
-            
-            <div class="event-card">
-                <div class="time">14:00</div>
-                <div class="details">
-                    <h3>Análise de Músicas Infantis</h3>
-                    <p>Aluno: João Silva</p>
-                    <p class="room"><i class='bx bx-map'></i> Sala 104</p>
-                </div>
-                <button class="btn-subscribe">Inscrever-se</button>
-            </div>
-
-            <div class="event-card">
-                <div class="time">16:00</div>
-                <div class="details">
-                    <h3>Desenvolvimento Web com React</h3>
-                    <p>Aluno: Maria Souza</p>
-                    <p class="room"><i class='bx bx-map'></i> Lab 03</p>
-                </div>
-                <button class="btn-subscribe">Inscrever-se</button>
-            </div>
-
+        <!-- barra de busca -->
+        <div class="search-bar-container bg-white p-2 rounded-pill shadow-sm mb-5 anime-start">
+    <div class="row g-2 align-items-center m-0">
+        <div class="col-md-5">
+            <input type="text" class="form-control border-0 shadow-none" placeholder="Aluno ou tema...">
         </div>
-    </div>
+        
+        <div class="col-md-3 border-start">
+            <select class="form-select border-0 shadow-none text-secondary" style="cursor: pointer;">
+                <option selected>Todos os Cursos</option>
+                <option value="1">Engenharia Comp.</option>
+                <option value="2">Fonoaudiologia</option>
+                <option value="3">Direito</option>
+            </select>
+        </div>
+
+        <div class="col-md-3 border-start">
+            <input type="date" class="form-control border-0 shadow-none">
+        </div>
+
+        <div class="col-md-1 text-end">
+            <button class="btn btn-custom-primary rounded-circle w-100 d-flex justify-content-center align-items-center" style="height: 45px; width: 45px !important;">
+                <i class='bx bx-search'></i>
+            </button>
+        </div>
     </div>
 </div>
+
+        <div class="schedule-container">
+            <!-- Grupo de Data 1 -->
+            <div class="row mb-5 anime-start">
+                <!-- Data -->
+                <div class="col-md-2 col-lg-1 text-center mb-3 mb-md-0">
+                    <div class="date-header bg-white p-3 rounded-4 shadow-sm sticky-md-top" style="top: 20px;">
+                        <span class="d-block fw-bold text-primary fs-2 lh-1">20</span>
+                        <div class="small text-secondary text-uppercase fw-bold mt-1">
+                            <span>Seg</span><br><span>Nov</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de Eventos -->
+                <div class="col-md-10 col-lg-11 d-flex flex-column gap-3">
+                    
+                    <!-- Card 1 -->
+                    <div class="card card-glass border-0 p-3 p-md-4">
+                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-center gap-3">
+                            <div class="time-slot pe-md-4 border-end-md">
+                                <span class="fs-4 fw-bold text-primary">14:00</span>
+                            </div>
+                            <div class="event-details flex-grow-1">
+                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle mb-2">Fonoaudiologia</span>
+                                <h3 class="h5 fw-bold mb-1 text-dark">Análise de Músicas Infantis</h3>
+                                <p class="mb-2 text-secondary">Aluno: <strong class="text-dark">João Silva</strong></p>
+                                <p class="mb-2 text-secondary">Orientadora: <strong class="text-dark">Gleyciane</strong></p>
+                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3 py-2 fw-normal">
+                                    <i class='bx bx-map me-1'></i> Sala 104 - Bloco C
+                                </span>
+                            </div>
+                            <div class="action-btn mt-3 mt-md-0">
+                                <button class="btn btn-outline-primary rounded-pill px-4 fw-semibold w-100">Inscrever-se</button>
+                                <div class="text-center mt-1">
+                                    <small class="text-muted" style="font-size: 0.8rem;">Restam 12 vagas</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card card-glass border-0 p-3 p-md-4">
+                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-center gap-3">
+                            <div class="time-slot pe-md-4 border-end-md">
+                                <span class="fs-4 fw-bold text-primary">16:00</span>
+                            </div>
+                            <div class="event-details flex-grow-1">
+                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle mb-2">Engenharia de computação</span>
+                                <h3 class="h5 fw-bold mb-1 text-dark">Desenvolvimento Web com React</h3>
+                                <p class="mb-2 text-secondary">Aluno: <strong class="text-dark">Maria Souza</strong></p>
+                                <p class="mb-2 text-secondary">Orientadora: <strong class="text-dark">Gleyciane</strong></p>
+                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3 py-2 fw-normal">
+                                    <i class='bx bx-map me-1'></i> Lab 03 - Informática
+                                </span>
+                            </div>
+                            <div class="action-btn mt-3 mt-md-0">
+                                <button class="btn btn-outline-primary rounded-pill px-4 fw-semibold w-100">Inscrever-se</button>
+                                <div class="text-center mt-1">
+                                    <small class="text-muted" style="font-size: 0.8rem;">Restam 3 vagas</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Grupo de Data 2 -->
+            <div class="row mb-5 anime-start">
+                <div class="col-md-2 col-lg-1 text-center mb-3 mb-md-0">
+                    <div class="date-header bg-white p-3 rounded-4 shadow-sm sticky-md-top" style="top: 20px;">
+                        <span class="d-block fw-bold text-primary fs-2 lh-1">21</span>
+                        <div class="small text-secondary text-uppercase fw-bold mt-1">
+                            <span>Ter</span><br><span>Nov</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-lg-11 d-flex flex-column gap-3">
+                    <!-- Card 3 -->
+                    <div class="card card-glass border-0 p-3 p-md-4">
+                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-center gap-3">
+                            <div class="time-slot pe-md-4 border-end-md">
+                                <span class="fs-4 fw-bold text-primary">09:30</span>
+                            </div>
+                            <div class="event-details flex-grow-1">
+                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle mb-2">Medicina</span>
+                                <h3 class="h5 fw-bold mb-1 text-dark">Inteligência Artificial na Saúde</h3>
+                                <p class="mb-2 text-secondary">Aluno: <strong class="text-dark">Carlos Eduardo</strong></p>
+                                <p class="mb-2 text-secondary">Orientadora: <strong class="text-dark">Gleyciane</strong></p>
+                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3 py-2 fw-normal">
+                                    <i class='bx bx-map me-1'></i> Auditório Principal
+                                </span>
+                            </div>
+                            <div class="action-btn mt-3 mt-md-0" style="min-width: 140px;">
+                                <button class="btn btn-outline-primary rounded-pill px-4 fw-semibold w-100" disabled>Esgotado</button>
+                                <div class="text-center mt-1">
+                                    <small class="text-muted" style="font-size: 0.8rem;">Sala Cheia</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.anime-start');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('anime-end');
+                        }, index * 100); 
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
