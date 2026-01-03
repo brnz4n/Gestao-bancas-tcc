@@ -1,5 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
+<<<<<<< HEAD
+:root {
+    /* Definição de Cores para usar no Bootstrap */
+    --bs-primary: #2563EB;      /* Azul de Ação */
+    --bs-secondary: #64748B;    /* Cinza-Azulado */
+    --bs-dark: #0F172A;         /* Azul Escuro */
+    --bs-body-bg: #E0F2FE;      /* Fundo suave */
+    --bs-body-color: #1E293B;   /* Cor de texto base */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Mantendo o gradiente de fundo customizado */
+    background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 50%, #FFFFFF 100%);
+    min-height: 100vh;
+}
+
+/* --- Layout e Elementos Não-Bootstrap --- */
+
+/* Ajustes para o Hero (Se precisar manter os efeitos) */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Seu efeito de fundo gradiente no hero (pode ser ajustado ou removido com o Bootstrap) */
+.hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    opacity: 0.5; /* Ajuste a opacidade */
+}
+
+.hero::before {
+    top: -50px;
+    left: 60%;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(173, 216, 230, 0.4);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: pulse 4s infinite alternate;
+}
+
+.hero::after {
+    bottom: -100px;
+    right: 50px;
+    width: 450px;
+    height: 500px;
+    background-color: rgba(135, 206, 235, 0.3);
+    border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;
+    filter: blur(100px);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* Fim dos ajustes do Hero */
+
+/* Para garantir que os ícones fiquem na posição correta nos campos de input (login/cadastro) */
+.input-group {
+    position: relative;
+}
+
+.input-group .bx {
+    /* Classes Bootstrap usadas para o posicionamento:
+       position-absolute, top-50, end-0, translate-middle-y, me-3
+       Este bloco CSS é apenas um fallback/ajuste fino.
+    */
+    pointer-events: none;
+=======
 .anime-start {
     opacity: 0;
     transform: translateY(30px);
@@ -110,4 +189,5 @@ body {
 
 .text-muted {
     color: #6c757d !important;
+>>>>>>> e7a1eb09c73af685dd31ba819852aca1fa30612f
 }
