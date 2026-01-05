@@ -1,42 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
-<<<<<<< HEAD
 :root {
-    /* Definição de Cores para usar no Bootstrap */
-    --bs-primary: #2563EB;      /* Azul de Ação */
-    --bs-secondary: #64748B;    /* Cinza-Azulado */
-    --bs-dark: #0F172A;         /* Azul Escuro */
-    --bs-body-bg: #E0F2FE;      /* Fundo suave */
-    --bs-body-color: #1E293B;   /* Cor de texto base */
+    --bs-primary: #2563EB;
+    --bs-secondary: #64748B;
+    --bs-dark: #0F172A;
+    --bs-body-bg: #E0F2FE;
+    --bs-body-color: #1E293B;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    /* Mantendo o gradiente de fundo customizado */
+    font-family: "Montserrat", Arial, sans-serif;
     background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 50%, #FFFFFF 100%);
     min-height: 100vh;
+    overflow-x: hidden;
+    display: block !important;
 }
 
-/* --- Layout e Elementos Não-Bootstrap --- */
+.anime-start {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
 
-/* Ajustes para o Hero (Se precisar manter os efeitos) */
+.anime-start.anime-end {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .hero {
     position: relative;
     overflow: hidden;
 }
 
-/* Seu efeito de fundo gradiente no hero (pode ser ajustado ou removido com o Bootstrap) */
-.hero::before, .hero::after {
+.hero::before,
+.hero::after {
     content: '';
     position: absolute;
     z-index: 1;
-    opacity: 0.5; /* Ajuste a opacidade */
+    opacity: 0.5;
 }
 
 .hero::before {
@@ -65,76 +72,45 @@ body {
     100% { transform: scale(1.05); }
 }
 
-/* Fim dos ajustes do Hero */
-
-/* Para garantir que os ícones fiquem na posição correta nos campos de input (login/cadastro) */
-.input-group {
-    position: relative;
-}
-
-.input-group .bx {
-    /* Classes Bootstrap usadas para o posicionamento:
-       position-absolute, top-50, end-0, translate-middle-y, me-3
-       Este bloco CSS é apenas um fallback/ajuste fino.
-    */
-    pointer-events: none;
-=======
-.anime-start {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease-out;
-}
-
-.anime-start.anime-end {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-body {
-    display: block !important;
-    font-family: "Montserrat", Arial, sans-serif;
-    background-color: #f8f9fa; /* Cor de fundo caso a imagem falhe */
-    overflow-x: hidden; /* Evita rolagem horizontal acidental */
-    min-height: 100vh;
-}
-
 .logo-fixed {
     position: absolute;
     top: 5px;
     left: 50px;
     width: 90px;
-    height: auto;
     z-index: 10;
 }
 
-.card-glass {
-    background: rgba(255, 255, 255, 0.95) !important;
-    border: 1px solid rgba(13, 71, 161, 0.3);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.input-group {
+    position: relative;
 }
 
-.progress {
-            height: 25px;
-            border-radius: 15px;
-            background-color: #e9ecef;
-        }
-        .progress-bar {
-            font-weight: bold;
-            line-height: 25px;
-        }
-        .table-hover tbody tr:hover {
-            background-color: rgba(13, 110, 253, 0.02);
-        }
+.input-group .bx {
+    pointer-events: none;
+}
 
-        .btn-custom-primary {
+.card-glass {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(13, 71, 161, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-glass:hover {
+    transform: translateY(-5px);
+    border-color: rgba(13, 71, 161, 0.3);
+}
+
+.btn-custom-primary {
     background-color: #0d47a1;
     color: white;
     padding: 10px 24px;
     border-radius: 50px;
     font-weight: 600;
+    border: none;
     box-shadow: 0 4px 15px rgba(13, 71, 161, 0.3);
     transition: all 0.2s ease;
-    border: none;
 }
 
 .btn-custom-primary:hover {
@@ -143,36 +119,27 @@ body {
     color: white;
 }
 
+.progress {
+    height: 25px;
+    border-radius: 15px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.02);
+}
+
 .search-bar-container input {
-    font-family: "Montserrat", sans-serif;
     font-size: 0.95rem;
 }
 
 .search-bar-container input:focus {
     box-shadow: none;
-}
-
-.card-glass {
-    background: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
-    border: 1px solid rgba(13, 71, 161, 0.1); /* Borda azul muito sutil */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
-    
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.card-glass:hover {
-    transform: translateY(-5px); /* Levanta levemente ao passar o mouse */
-    border-color: rgba(13, 71, 161, 0.3);
-}
-
-/* Adiciona uma borda à direita da hora apenas em telas médias e grandes */
-@media (min-width: 768px) {
-    .border-end-md {
-        border-right: 2px solid #eee !important;
-    }
 }
 
 .icon-box {
@@ -189,5 +156,10 @@ body {
 
 .text-muted {
     color: #6c757d !important;
->>>>>>> e7a1eb09c73af685dd31ba819852aca1fa30612f
+}
+
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 2px solid #eee !important;
+    }
 }
