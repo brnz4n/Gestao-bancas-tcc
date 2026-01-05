@@ -16,7 +16,7 @@
             overflow-x: hidden;
         }
 
-        /* --- CLASSE CARD GLASS --- */
+        /* --- CLASSE CARD GLASS (Mesmo estilo de Relatórios) --- */
         .card-glass {
             background: #ffffff;
             border-radius: 16px;
@@ -37,7 +37,7 @@
             transform: translateY(0);
         }
 
-        /* --- TABELA CUSTOMIZADA (Estilo Cards) --- */
+        /* --- TABELA CUSTOMIZADA (Estilo Cards - Específico desta página) --- */
         .table-separate {
             border-collapse: separate;
             border-spacing: 0 15px;
@@ -83,6 +83,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
+        /* Botões de Ação */
         .btn-action {
             width: 42px;
             height: 42px;
@@ -101,6 +102,7 @@
         .btn-action.delete:hover { color: #dc3545; background: #ffe6e6; }
         .btn-action.finish:hover { color: #198754; background: #e6f8ee; }
 
+        /* Barra de Pesquisa */
         .search-container {
             background: white;
             border-radius: 50px;
@@ -130,13 +132,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav gap-3 align-items-center anime-start">
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Home</a>
+                        <a class="nav-link text-secondary" href="dashboard_admin.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active fw-bold text-primary" href="#">Bancas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Relatórios</a>
+                        <a class="nav-link text-secondary" href="relatorios.html">Relatórios</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-primary fw-bold rounded-pill px-4" href="index.html">Sair</a>
@@ -164,25 +166,51 @@
         <div class="table-responsive anime-start" style="transition-delay: 0.2s;">
             <table class="table table-separate">
                 <tbody>
-                    
                     <tr>
                         <td width="100">
                             <div class="date-badge">
-                                <span class="d-block fs-4">20</span>
-                                <small class="text-uppercase" style="font-size: 0.7rem;">NOV</small>
+                                <span class="d-block fs-4">15</span>
+                                <small class="text-uppercase" style="font-size: 0.7rem;">DEZ</small>
                             </div>
                         </td>
                         <td>
                             <div class="d-flex flex-column">
                                 <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill mb-2 align-self-start px-3" style="font-size: 0.75rem;">AGENDADA</span>
-                                <span class="title-text">Automação Residencial IoT</span>
-                                <span class="subtitle-text mt-1"><i class='bx bx-user me-1'></i> João Silva &bull; <i class='bx bx-id-card ms-1 me-1'></i> Orientador: Prof. Carlos</span>
+                                <span class="title-text">Sistema Web para Gestão de Bancas</span>
+                                <span class="subtitle-text mt-1"><i class='bx bx-user me-1'></i> Denis Macias Veiga &bull; <i class='bx bx-id-card ms-1 me-1'></i> Orientador: Felipe Dellê</span>
+                            </div>
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            <div class="d-flex flex-column gap-1">
+                                <span class="text-muted fw-semibold" style="font-size: 0.9rem;"><i class='bx bx-book-bookmark text-primary me-2'></i>Eng. Software</span>
+                                <span class="text-muted small"><i class='bx bx-map me-1'></i>Sala 104 &bull; 19:00h</span>
+                            </div>
+                        </td>
+                        <td class="text-end pe-4">
+                            <button class="btn-action" title="Editar" data-bs-toggle="modal" data-bs-target="#modalEdicao"><i class='bx bx-pencil fs-5'></i></button>
+                            <button class="btn-action finish" title="Finalizar"><i class='bx bx-check fs-4'></i></button>
+                            <button class="btn-action delete" title="Apagar"><i class='bx bx-trash fs-5'></i></button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="date-badge">
+                                <span class="d-block fs-4">16</span>
+                                <small class="text-uppercase" style="font-size: 0.7rem;">DEZ</small>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill mb-2 align-self-start px-3" style="font-size: 0.75rem;">AGENDADA</span>
+                                <span class="title-text">Segurança em Redes</span>
+                                <span class="subtitle-text mt-1"><i class='bx bx-user me-1'></i> Ana Carolina &bull; <i class='bx bx-id-card ms-1 me-1'></i> Orientador: José Marcondes</span>
                             </div>
                         </td>
                         <td class="d-none d-md-table-cell">
                             <div class="d-flex flex-column gap-1">
                                 <span class="text-muted fw-semibold" style="font-size: 0.9rem;"><i class='bx bx-book-bookmark text-primary me-2'></i>Eng. Computação</span>
-                                <span class="text-muted small"><i class='bx bx-map me-1'></i>Sala 101 &bull; 14:00h</span>
+                                <span class="text-muted small"><i class='bx bx-map me-1'></i>Auditório &bull; 20:30h</span>
                             </div>
                         </td>
                         <td class="text-end pe-4">
@@ -195,53 +223,27 @@
                     <tr>
                         <td>
                             <div class="date-badge">
-                                <span class="d-block fs-4">20</span>
-                                <small class="text-uppercase" style="font-size: 0.7rem;">NOV</small>
+                                <span class="d-block fs-4">17</span>
+                                <small class="text-uppercase" style="font-size: 0.7rem;">DEZ</small>
                             </div>
                         </td>
                         <td>
                             <div class="d-flex flex-column">
                                 <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill mb-2 align-self-start px-3" style="font-size: 0.75rem;">AGENDADA</span>
-                                <span class="title-text">Inteligência Artificial na Medicina</span>
-                                <span class="subtitle-text mt-1"><i class='bx bx-user me-1'></i> Maria Souza &bull; <i class='bx bx-id-card ms-1 me-1'></i> Orientador: Prof. Roberto</span>
+                                <span class="title-text">Lógica de Programação na Educação</span>
+                                <span class="subtitle-text mt-1"><i class='bx bx-user me-1'></i> Marcondes Machado &bull; <i class='bx bx-id-card ms-1 me-1'></i> Orientador: Felipe Alencar</span>
                             </div>
                         </td>
                         <td class="d-none d-md-table-cell">
                             <div class="d-flex flex-column gap-1">
-                                <span class="text-muted fw-semibold" style="font-size: 0.9rem;"><i class='bx bx-book-bookmark text-primary me-2'></i>Ciência da Comp.</span>
-                                <span class="text-muted small"><i class='bx bx-map me-1'></i>Laboratório 3 &bull; 16:00h</span>
+                                <span class="text-muted fw-semibold" style="font-size: 0.9rem;"><i class='bx bx-book-bookmark text-primary me-2'></i>Lic. Computação</span>
+                                <span class="text-muted small"><i class='bx bx-map me-1'></i>Sala 105 &bull; 18:00h</span>
                             </div>
                         </td>
                         <td class="text-end pe-4">
                             <button class="btn-action" title="Editar" data-bs-toggle="modal" data-bs-target="#modalEdicao"><i class='bx bx-pencil fs-5'></i></button>
                             <button class="btn-action finish" title="Finalizar"><i class='bx bx-check fs-4'></i></button>
                             <button class="btn-action delete" title="Apagar"><i class='bx bx-trash fs-5'></i></button>
-                        </td>
-                    </tr>
-
-                    <tr style="opacity: 0.8;">
-                        <td>
-                            <div class="date-badge bg-light text-secondary">
-                                <span class="d-block fs-4">18</span>
-                                <small class="text-uppercase" style="font-size: 0.7rem;">NOV</small>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column">
-                                <span class="badge bg-success bg-opacity-10 text-success rounded-pill mb-2 align-self-start px-3" style="font-size: 0.75rem;">FINALIZADA</span>
-                                <span class="title-text text-muted">Sistema de Delivery App</span>
-                                <span class="subtitle-text mt-1"><i class='bx bx-user me-1'></i> Pedro Santos &bull; <i class='bx bx-check-circle text-success ms-1 me-1'></i> Aprovado</span>
-                            </div>
-                        </td>
-                        <td class="d-none d-md-table-cell">
-                            <div class="d-flex flex-column gap-1">
-                                <span class="text-muted fw-semibold" style="font-size: 0.9rem;"><i class='bx bx-book-bookmark text-secondary me-2'></i>Eng. Software</span>
-                                <span class="text-muted small"><i class='bx bx-map me-1'></i>Auditório &bull; 19:00h</span>
-                            </div>
-                        </td>
-                        <td class="text-end pe-4">
-                            <button class="btn-action" title="Ver Detalhes" data-bs-toggle="modal" data-bs-target="#modalEdicao"><i class='bx bx-show fs-5'></i></button>
-                            <button class="btn-action delete" title="Arquivar"><i class='bx bx-archive-in fs-5'></i></button>
                         </td>
                     </tr>
 
@@ -352,7 +354,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {

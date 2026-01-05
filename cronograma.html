@@ -8,124 +8,199 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" sizes="32x32" href="imagens/AvaliaTCC icon.png">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- ESTILOS GERAIS E GLASSMORPHISM --- */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            color: #495057;
+        }
+
+        .card-glass {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-glass:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.1);
+        }
+
+        /* Animações de entrada */
+        .anime-start {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .anime-end {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botões e Inputs */
+        .btn-custom-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            transition: all 0.3s;
+        }
+        .btn-custom-primary:hover {
+            background-color: #0b5ed7;
+            color: white;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        }
+
+        /* Detalhes Específicos */
+        .date-sticky {
+            position: sticky;
+            top: 20px;
+        }
+        
+        /* Ajuste fino na barra de busca */
+        .search-input-bg {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: none;
+            background-color: #fff;
+            border-color: #0d6efd;
+        }
+    </style>
 
 </head>
 <body>
-    <div class="container-fluid px-5">
-            <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2 anime-start" href="index.html">
-                <img src="imagens/AvaliaTCC LOGO.png" alt="logo_sigac" height="70"></i>
+
+    <nav class="navbar pt-4 pb-0 anime-start">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2" href="index.html">
+                <img src="imagens/AvaliaTCC LOGO.png" alt="logo_sigac" height="60" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <h3 class="m-0 fw-bold text-primary" style="display:none;">AvaliaTCC</h3>
             </a>
-
-        <div class="container mt-5 pt-5 pb-5">
-            <!-- botão de voltar -->
-         <div class="row pt-4 mb-4 align-items-center anime-start" style="transition-delay: 0,1s;">
-            <div class="col-auto">
-                <a href="index.html" class="btn btn-outline-secondary rounded-circle" title="Voltar">
-                    <i class='bx bx-arrow-back'></i>
-                </a>
-            </div>
-
-            <div class="col">
-                <h2 class="fw-bold text-dark mb-0">Cronograma de Bancas</h2>
-                <p class=" mb-0">Confira as datas e locais das defesas de TCC</p>
-            </div>
-
-            <div class="col text-end">
-                <a href="#" class="btn btn-custom-primary mt-4 mt-md-3">
-                    <i class='bx bx-user-plus'></i> Quero ser Ouvinte
-                </a>
-            </div>
         </div>
+    </nav>
 
-        <!-- barra de busca -->
-        <div class="search-bar-container bg-white p-2 rounded-pill shadow-sm mb-5 anime-start">
-    <div class="row g-2 align-items-center m-0">
-        <div class="col-md-5">
-            <input type="text" class="form-control border-0 shadow-none" placeholder="Aluno ou tema...">
-        </div>
+    <div class="container mt-5 pb-5">
         
-        <div class="col-md-3 border-start">
-            <select class="form-select border-0 shadow-none text-secondary" style="cursor: pointer;">
-                <option selected>Todos os Cursos</option>
-                <option value="1">Engenharia Comp.</option>
-                <option value="2">Fonoaudiologia</option>
-                <option value="3">Direito</option>
-            </select>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-5 anime-start" style="transition-delay: 0.1s;">
+            <div class="d-flex align-items-center gap-3">
+                <a href="index.html" class="btn btn-white bg-white text-secondary shadow-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;" title="Voltar">
+                    <i class='bx bx-arrow-back fs-5'></i>
+                </a>
+                <div>
+                    <h2 class="fw-bold text-dark mb-0 ls-tight">Cronograma de Bancas</h2>
+                    <p class="text-muted mb-0 small">Confira as datas e locais das defesas</p>
+                </div>
+            </div>
+            
+            <a href="cadastro_ouvinte.html" class="btn btn-custom-primary rounded-pill fw-bold d-flex align-items-center gap-2 shadow-sm">
+                <i class='bx bx-user-plus fs-5'></i> Quero ser Ouvinte
+            </a>
         </div>
 
-        <div class="col-md-3 border-start">
-            <input type="date" class="form-control border-0 shadow-none">
-        </div>
+        <div class="card border-0 shadow-sm rounded-pill p-2 mb-5 anime-start" style="transition-delay: 0.2s;">
+            <div class="row g-2 align-items-center m-0">
+                <div class="col-lg-5">
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-0 ps-3"><i class='bx bx-search text-muted'></i></span>
+                        <input type="text" class="form-control border-0 shadow-none bg-transparent" placeholder="Pesquisar por aluno, tema ou orientador...">
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 border-start border-light">
+                    <select class="form-select border-0 shadow-none text-secondary bg-transparent" style="cursor: pointer;">
+                        <option selected>Todos os Cursos</option>
+                        <option value="1">Engenharia Comp.</option>
+                        <option value="2">Fonoaudiologia</option>
+                        <option value="3">Direito</option>
+                    </select>
+                </div>
 
-        <div class="col-md-1 text-end">
-            <button class="btn btn-custom-primary rounded-circle w-100 d-flex justify-content-center align-items-center" style="height: 45px; width: 45px !important;">
-                <i class='bx bx-search'></i>
-            </button>
+                <div class="col-lg-3 border-start border-light">
+                    <input type="date" class="form-control border-0 shadow-none text-secondary bg-transparent">
+                </div>
+
+                <div class="col-lg-1">
+                    <button class="btn btn-primary rounded-pill w-100 d-flex justify-content-center align-items-center" style="height: 42px;">
+                        <i class='bx bx-filter-alt'></i>
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <div class="schedule-container">
-            <!-- Grupo de Data 1 -->
-            <div class="row mb-5 anime-start">
-                <!-- Data -->
-                <div class="col-md-2 col-lg-1 text-center mb-3 mb-md-0">
-                    <div class="date-header bg-white p-3 rounded-4 shadow-sm sticky-md-top" style="top: 20px;">
-                        <span class="d-block fw-bold text-primary fs-2 lh-1">20</span>
+            
+            <div class="row mb-5 anime-start" style="transition-delay: 0.3s;">
+                <div class="col-md-2 text-center text-md-start mb-3 mb-md-0">
+                    <div class="date-sticky bg-white p-3 rounded-4 shadow-sm d-inline-block d-md-block text-center border border-light">
+                        <span class="d-block fw-bold text-primary fs-1 lh-1">20</span>
                         <div class="small text-secondary text-uppercase fw-bold mt-1">
-                            <span>Seg</span><br><span>Nov</span>
+                            <span>Seg</span> &bull; <span>Nov</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lista de Eventos -->
-                <div class="col-md-10 col-lg-11 d-flex flex-column gap-3">
+                <div class="col-md-10 d-flex flex-column gap-3">
                     
-                    <!-- Card 1 -->
-                    <div class="card card-glass border-0 p-3 p-md-4">
-                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-center gap-3">
-                            <div class="time-slot pe-md-4 border-end-md">
-                                <span class="fs-4 fw-bold text-primary">14:00</span>
+                    <div class="card card-glass p-0">
+                        <div class="card-body p-4 d-flex flex-column flex-lg-row align-items-lg-center gap-4">
+                            <div class="d-flex flex-lg-column align-items-center gap-2 pe-lg-4 border-end-lg text-primary" style="min-width: 80px;">
+                                <i class='bx bx-time-five fs-4'></i>
+                                <span class="fs-4 fw-bold">14:00</span>
                             </div>
-                            <div class="event-details flex-grow-1">
-                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle mb-2">Fonoaudiologia</span>
-                                <h3 class="h5 fw-bold mb-1 text-dark">Análise de Músicas Infantis</h3>
-                                <p class="mb-2 text-secondary">Aluno: <strong class="text-dark">João Silva</strong></p>
-                                <p class="mb-2 text-secondary">Orientadora: <strong class="text-dark">Gleyciane</strong></p>
-                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3 py-2 fw-normal">
+                            
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle rounded-pill px-3">Fonoaudiologia</span>
+                                </div>
+                                <h4 class="fw-bold text-dark mb-2">Análise de Músicas Infantis</h4>
+                                <div class="d-flex flex-wrap gap-3 text-secondary small mb-3">
+                                    <span><i class='bx bx-user me-1'></i> Aluno: <strong>João Silva</strong></span>
+                                    <span><i class='bx bx-id-card me-1'></i> Orientadora: <strong>Gleyciane</strong></span>
+                                </div>
+                                <span class="badge bg-light text-secondary border rounded-pill px-3 py-2 fw-normal">
                                     <i class='bx bx-map me-1'></i> Sala 104 - Bloco C
                                 </span>
                             </div>
-                            <div class="action-btn mt-3 mt-md-0">
-                                <button class="btn btn-outline-primary rounded-pill px-4 fw-semibold w-100">Inscrever-se</button>
-                                <div class="text-center mt-1">
-                                    <small class="text-muted" style="font-size: 0.8rem;">Restam 12 vagas</small>
-                                </div>
+
+                            <div class="d-flex flex-column align-items-center gap-2" style="min-width: 160px;">
+                                <button class="btn btn-outline-primary rounded-pill px-4 fw-bold w-100">Inscrever-se</button>
+                                <small class="text-success fw-bold"><i class='bx bxs-circle fs-6 me-1 align-middle'></i>12 vagas</small>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Card 2 -->
-                    <div class="card card-glass border-0 p-3 p-md-4">
-                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-center gap-3">
-                            <div class="time-slot pe-md-4 border-end-md">
-                                <span class="fs-4 fw-bold text-primary">16:00</span>
+                    <div class="card card-glass p-0">
+                        <div class="card-body p-4 d-flex flex-column flex-lg-row align-items-lg-center gap-4">
+                            <div class="d-flex flex-lg-column align-items-center gap-2 pe-lg-4 border-end-lg text-primary" style="min-width: 80px;">
+                                <i class='bx bx-time-five fs-4'></i>
+                                <span class="fs-4 fw-bold">16:00</span>
                             </div>
-                            <div class="event-details flex-grow-1">
-                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle mb-2">Engenharia de computação</span>
-                                <h3 class="h5 fw-bold mb-1 text-dark">Desenvolvimento Web com React</h3>
-                                <p class="mb-2 text-secondary">Aluno: <strong class="text-dark">Maria Souza</strong></p>
-                                <p class="mb-2 text-secondary">Orientadora: <strong class="text-dark">Gleyciane</strong></p>
-                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3 py-2 fw-normal">
+                            
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="badge bg-info bg-opacity-10 text-info border border-info-subtle rounded-pill px-3">Eng. Computação</span>
+                                </div>
+                                <h4 class="fw-bold text-dark mb-2">Desenvolvimento Web com React</h4>
+                                <div class="d-flex flex-wrap gap-3 text-secondary small mb-3">
+                                    <span><i class='bx bx-user me-1'></i> Aluno: <strong>Maria Souza</strong></span>
+                                    <span><i class='bx bx-id-card me-1'></i> Orientadora: <strong>Gleyciane</strong></span>
+                                </div>
+                                <span class="badge bg-light text-secondary border rounded-pill px-3 py-2 fw-normal">
                                     <i class='bx bx-map me-1'></i> Lab 03 - Informática
                                 </span>
                             </div>
-                            <div class="action-btn mt-3 mt-md-0">
-                                <button class="btn btn-outline-primary rounded-pill px-4 fw-semibold w-100">Inscrever-se</button>
-                                <div class="text-center mt-1">
-                                    <small class="text-muted" style="font-size: 0.8rem;">Restam 3 vagas</small>
-                                </div>
+
+                            <div class="d-flex flex-column align-items-center gap-2" style="min-width: 160px;">
+                                <button class="btn btn-outline-primary rounded-pill px-4 fw-bold w-100">Inscrever-se</button>
+                                <small class="text-warning fw-bold"><i class='bx bxs-circle fs-6 me-1 align-middle'></i>3 vagas</small>
                             </div>
                         </div>
                     </div>
@@ -133,38 +208,41 @@
                 </div>
             </div>
 
-            <!-- Grupo de Data 2 -->
-            <div class="row mb-5 anime-start">
-                <div class="col-md-2 col-lg-1 text-center mb-3 mb-md-0">
-                    <div class="date-header bg-white p-3 rounded-4 shadow-sm sticky-md-top" style="top: 20px;">
-                        <span class="d-block fw-bold text-primary fs-2 lh-1">21</span>
+            <div class="row mb-5 anime-start" style="transition-delay: 0.4s;">
+                <div class="col-md-2 text-center text-md-start mb-3 mb-md-0">
+                    <div class="date-sticky bg-white p-3 rounded-4 shadow-sm d-inline-block d-md-block text-center border border-light">
+                        <span class="d-block fw-bold text-primary fs-1 lh-1">21</span>
                         <div class="small text-secondary text-uppercase fw-bold mt-1">
-                            <span>Ter</span><br><span>Nov</span>
+                            <span>Ter</span> &bull; <span>Nov</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-10 col-lg-11 d-flex flex-column gap-3">
-                    <!-- Card 3 -->
-                    <div class="card card-glass border-0 p-3 p-md-4">
-                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-center gap-3">
-                            <div class="time-slot pe-md-4 border-end-md">
-                                <span class="fs-4 fw-bold text-primary">09:30</span>
+                <div class="col-md-10 d-flex flex-column gap-3">
+                    <div class="card card-glass p-0">
+                        <div class="card-body p-4 d-flex flex-column flex-lg-row align-items-lg-center gap-4">
+                            <div class="d-flex flex-lg-column align-items-center gap-2 pe-lg-4 border-end-lg text-primary" style="min-width: 80px;">
+                                <i class='bx bx-time-five fs-4'></i>
+                                <span class="fs-4 fw-bold">09:30</span>
                             </div>
-                            <div class="event-details flex-grow-1">
-                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle mb-2">Medicina</span>
-                                <h3 class="h5 fw-bold mb-1 text-dark">Inteligência Artificial na Saúde</h3>
-                                <p class="mb-2 text-secondary">Aluno: <strong class="text-dark">Carlos Eduardo</strong></p>
-                                <p class="mb-2 text-secondary">Orientadora: <strong class="text-dark">Gleyciane</strong></p>
-                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3 py-2 fw-normal">
+                            
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success-subtle rounded-pill px-3">Medicina</span>
+                                </div>
+                                <h4 class="fw-bold text-dark mb-2">Inteligência Artificial na Saúde</h4>
+                                <div class="d-flex flex-wrap gap-3 text-secondary small mb-3">
+                                    <span><i class='bx bx-user me-1'></i> Aluno: <strong>Carlos Eduardo</strong></span>
+                                    <span><i class='bx bx-id-card me-1'></i> Orientadora: <strong>Gleyciane</strong></span>
+                                </div>
+                                <span class="badge bg-light text-secondary border rounded-pill px-3 py-2 fw-normal">
                                     <i class='bx bx-map me-1'></i> Auditório Principal
                                 </span>
                             </div>
-                            <div class="action-btn mt-3 mt-md-0" style="min-width: 140px;">
-                                <button class="btn btn-outline-primary rounded-pill px-4 fw-semibold w-100" disabled>Esgotado</button>
-                                <div class="text-center mt-1">
-                                    <small class="text-muted" style="font-size: 0.8rem;">Sala Cheia</small>
-                                </div>
+
+                            <div class="d-flex flex-column align-items-center gap-2" style="min-width: 160px;">
+                                <button class="btn btn-secondary bg-opacity-10 border-0 text-secondary rounded-pill px-4 fw-bold w-100" disabled>Esgotado</button>
+                                <small class="text-danger fw-bold">Sala Cheia</small>
                             </div>
                         </div>
                     </div>
@@ -175,7 +253,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const elements = document.querySelectorAll('.anime-start');

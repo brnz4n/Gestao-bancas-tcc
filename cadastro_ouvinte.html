@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvaliaTCC - Cadastro de Ouvinte</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" sizes="32x32" href="imagens/AvaliaTCC icon.png">
+    
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            color: #495057;
+        }
+
+        /* --- GLASSMORPHISM --- */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- ANIMAÇÕES --- */
+        .anime-start {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .anime-end {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- BOTÕES --- */
+        .btn-custom-primary {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-2px);
+            color: white;
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+        }
+
+        /* --- INPUTS PERSONALIZADOS --- */
+        .input-group-text {
+            background-color: #f8f9fa; /* Fundo levemente cinza */
+            border-color: #dee2e6;
+            color: #6c757d;
+        }
+        
+        .form-control, .form-select {
+            background-color: #f8f9fa;
+            border-color: #dee2e6;
+            padding: 10px 15px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: #fff;
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+        }
+        
+        /* Ícone ativo quando input focado (opcional, via CSS irmão adjacente se estruturado, mas aqui mantemos simples) */
+        .form-control:focus + .input-group-text, 
+        .input-group-text:has(+ .form-control:focus) {
+            border-color: #0d6efd;
+            color: #0d6efd;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar pt-4 pb-0 anime-start">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2" href="index.html">
+                <img src="imagens/AvaliaTCC LOGO.png" alt="logo_sigac" height="60" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <h3 class="m-0 fw-bold text-primary" style="display:none;">AvaliaTCC</h3>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-4 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                
+                <div class="mb-4 anime-start" style="transition-delay: 0.1s;">
+                    <a href="cronograma.html" class="btn btn-white bg-white text-secondary shadow-sm rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;" title="Voltar">
+                        <i class='bx bx-arrow-back fs-5'></i>
+                    </a>
+                </div>
+
+                <div class="card card-glass border-0 p-4 p-md-5 anime-start" style="transition-delay: 0.2s;">
+                    
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3" style="width: 64px; height: 64px;">
+                            <i class='bx bx-user-plus fs-1'></i>
+                        </div>
+                        <h3 class="fw-bold text-dark">Criar Conta de Ouvinte</h3>
+                        <p class="text-muted small px-4">Preencha seus dados para garantir suas horas complementares e certificados.</p>
+                    </div>
+
+                    <form action="login.html" method="POST">
+                        <div class="row g-3">
+                            
+                            <div class="col-12">
+                                <label class="form-label fw-bold small text-secondary text-uppercase">Nome Completo</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class='bx bx-user'></i></span>
+                                    <input type="text" class="form-control" placeholder="Ex: João da Silva" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-bold small text-secondary text-uppercase">E-mail Institucional</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class='bx bx-envelope'></i></span>
+                                    <input type="email" class="form-control" placeholder="aluno@faculdade.edu.br" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-bold small text-secondary text-uppercase">Curso</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class='bx bx-book-bookmark'></i></span>
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Selecione seu curso...</option>
+                                        <option value="1">Engenharia de Computação</option>
+                                        <option value="2">Engenharia de Software</option>
+                                        <option value="3">Sistemas de Informação</option>
+                                        <option value="4">Outros / Visitante Externo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                             <div class="col-12">
+                                <label class="form-label fw-bold small text-secondary text-uppercase">Matrícula <span class="text-muted fw-normal text-lowercase">(opcional)</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class='bx bx-id-card'></i></span>
+                                    <input type="text" class="form-control" placeholder="000000">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-secondary text-uppercase">Senha</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class='bx bx-lock-alt'></i></span>
+                                    <input type="password" class="form-control" placeholder="******" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-secondary text-uppercase">Confirmar</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class='bx bx-lock-alt'></i></span>
+                                    <input type="password" class="form-control" placeholder="******" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-3">
+                                <div class="form-check d-flex align-items-center gap-2">
+                                    <input class="form-check-input mt-0" type="checkbox" value="" id="termos" required style="cursor: pointer;">
+                                    <label class="form-check-label text-muted small lh-sm" for="termos" style="cursor: pointer;">
+                                        Li e concordo com os termos de uso de dados para emissão de certificados acadêmicos.
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-custom-primary w-100 rounded-pill py-3 fw-bold shadow-sm">
+                                    Cadastrar-se
+                                </button>
+                            </div>
+
+                            <div class="col-12 text-center mt-4">
+                                <p class="small text-muted mb-0">Já possui conta? <a href="login.html" class="text-primary fw-bold text-decoration-none">Fazer Login</a></p>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.anime-start');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('anime-end');
+                        }, index * 100); 
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
