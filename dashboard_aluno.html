@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvaliaTCC - Painel do Aluno</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagens/AvaliaTCC icon.png">
+    
+    <style>
+        .bg-primary-soft {
+            background-color: #f0f9ff !important;
+            color: #0369a1 !important;
+        }
+        
+        .navbar-custom {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .btn-custom-light {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-light:hover {
+            background-color: #bae6fd;
+            color: #0c4a6e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom shadow-sm py-2">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand d-flex align-items-center gap-2 anime-start" href="index.html">
+                <img src="imagens/AvaliaTCC LOGO.png" alt="logo_avaliatcc" height="60">
+            </a>
+            <div class="ms-auto d-flex align-items-center gap-3">
+                <span class="text-dark d-none d-md-block small">Bem-vindo, <strong>Denis Macias</strong></span>
+                <a href="index.html" class="btn btn-sm btn-custom-light rounded-pill px-3 fw-bold">Sair</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5 mt-5">
+        <div class="container pt-4">
+            
+            <div class="row mb-4 anime-start">
+                <div class="col-12">
+                    <h2 class="fw-bold text-dark">Área do Aluno</h2>
+                    <p class="text-muted small">Gerencie sua banca e participe de atividades acadêmicas.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-7 anime-start" style="transition-delay: 0.2s;">
+                    <div class="card card-glass border-0 rounded-4 mb-4">
+                        <div class="card-header bg-transparent border-0 pt-4 px-4">
+                            <h5 class="fw-bold mb-0 text-primary">Minha Banca de TCC</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="alert bg-primary-soft border-0 rounded-3 d-flex align-items-center gap-3">
+                                <i class='bx bxs-info-circle fs-3'></i>
+                                <div>
+                                    <span class="d-block fw-bold small">Status: Agendada</span>
+                                    <span class="small">Sua defesa está confirmada para o dia informado abaixo.</span>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-muted small d-block">Título do Trabalho</label>
+                                    <span class="fw-bold small">Gerenciamento de Bancas Avaliadoras</span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-muted small d-block">Data e Horário</label>
+                                    <span class="fw-bold small">25/06/2015 às 19:00h</span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-muted small d-block">Sala</label>
+                                    <span class="fw-bold small">Auditório TADS </span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="text-muted small d-block">Orientador</label>
+                                    <span class="fw-bold small">Prof. Felipe José Dellê </span>
+                                </div>
+                            </div>
+                            
+                            <hr class="opacity-10">
+                            
+                            <div class="d-flex gap-2">
+                                <a href="ver_resumo.html" class="btn btn-custom-primary btn-sm px-4">
+                                    Ver Resumo
+                                </a>
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalAlteracao">
+                                    <i class='bx bx-edit-alt'></i> Solicitar Alteração
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-glass border-0 rounded-4">
+                        <div class="card-header bg-transparent border-0 pt-4 px-4">
+                            <h5 class="fw-bold mb-0 text-primary">Minhas Participações (Ouvinte)</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="bg-light">
+                                        <tr class="small">
+                                            <th>Data</th>
+                                            <th>Título da Banca</th>
+                                            <th class="text-center">Certificado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        <tr>
+                                            <td>10/06/2015</td>
+                                            <td class="fw-bold">Segurança em Redes</td>
+                                            <td class="text-center">
+                                                <a href="#" class="btn btn-sm btn-custom-light rounded-circle">
+                                                    <i class='bx bxs-download'></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 anime-start" style="transition-delay: 0.4s;">
+                    <div class="card border-0 bg-primary-soft shadow-sm rounded-4 mb-4">
+                        <div class="card-body p-4 text-center">
+                            <i class='bx bxs-user-plus fs-1 mb-2'></i>
+                            <h5 class="fw-bold">Participar como Ouvinte</h5>
+                            <p class="small text-muted">Acompanhe defesas e obtenha certificados de horas.</p>
+                            <a href="bancas_disponiveis.html" class="btn btn-custom-primary w-100 mt-2">Ver Bancas Abertas</a>
+                        </div>
+                    </div>
+
+                    <div class="card card-glass border-0 rounded-4">
+                        <div class="card-header bg-transparent border-0 pt-4 px-4">
+                            <h5 class="fw-bold mb-0 small text-uppercase text-primary">Próximas Defesas</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="bg-primary-soft p-2 rounded text-center" style="min-width: 60px;">
+                                    <span class="d-block fw-bold mb-0">15</span>
+                                    <span class="small text-muted">JUL</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0 fw-bold small">Lógica de Programação</h6>
+                                    <span class="text-muted extra-small">Sala 105 | 18:00h </span>
+                                </div>
+                                <a href="bancas_disponiveis.html" class="btn btn-sm btn-outline-primary rounded-pill px-3 extra-small">Inscrever</a>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-primary-soft p-2 rounded text-center" style="min-width: 60px;">
+                                    <span class="d-block fw-bold mb-0">22</span>
+                                    <span class="small text-muted">JUL</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0 fw-bold small">Gestão em Farmácia </h6>
+                                    <span class="text-muted extra-small">Sala 104 | 21:00h </span>
+                                </div>
+                                <a href="bancas_disponiveis.html" class="btn btn-sm btn-outline-primary rounded-pill px-3 extra-small">Inscrever</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="modalAlteracao" tabindex="-1" aria-labelledby="modalAlteracaoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-bottom-0 pt-4 px-4">
+                    <h5 class="modal-title fw-bold text-primary" id="modalAlteracaoLabel">Solicitar Alteração de Banca</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4">
+                    <p class="text-muted small ">Preencha os dados que deseja alterar para análise.</p>
+                    <form id="formAlteracao">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-secondary">Novo Título (opcional)</label>
+                            <input type="text" class="form-control rounded-pill" placeholder="Novo título...">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold text-secondary">Nova Data</label>
+                                <input type="date" class="form-control rounded-pill">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold text-secondary">Novo Horário</label>
+                                <input type="time" class="form-control rounded-pill">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-top-0 pb-4 px-4 text-center">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="formAlteracao" class="btn btn-custom-primary px-5">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 mt-5 border-top bg-white">
+        <p class="text-muted small mb-0">© 2026 AvaliaTCC - Gerenciamento de Bancas[cite: 1].</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                var elementos = document.querySelectorAll('.anime-start');
+                elementos.forEach(function(elemento) {
+                    elemento.classList.add('anime-end');
+                });
+            }, 100); 
+        });
+    </script>
+</body>
+</html>
