@@ -3,23 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AvaliaTCC - Início</title>
+    <title>AvaliaTCC - Painel do Coordenador</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="imagens/AvaliaTCC icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagens/AvaliaTCC icon.png">
     
-</head>
-<body style="padding-top: 90px;">
+    <style>
+        /* --- PADRONIZAÇÃO VISUAL --- */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm py-0 anime-start">
+        /* Navbar com efeito vidro */
+        .navbar-custom {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Botão Sair (Azul claro) */
+        .btn-custom-light {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-light:hover {
+            background-color: #bae6fd;
+            color: #0c4a6e;
+        }
+
+        /* Botão Primário (Azul forte) */
+        .btn-custom-primary {
+            background-color: #0ea5e9;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            background-color: #0284c7;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Card Glass */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+        .card-glass:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Ícones coloridos */
+        .bg-primary-soft { background-color: #f0f9ff !important; color: #0369a1 !important; }
+        .bg-warning-soft { background-color: #fffbeb !important; color: #b45309 !important; }
+        .bg-success-soft { background-color: #f0fdf4 !important; color: #15803d !important; }
+
+        /* Animações */
+        .anime-start {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .anime-end {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .date-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+
+<body style="padding-bottom: 80px;">
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom shadow-sm py-2 anime-start">
         <div class="container-fluid px-5">
-            <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2 anime-start" href="index.html">
-                <img src="imagens/AvaliaTCC LOGO.png" alt="logo_sigac" height="70">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="imagens/AvaliaTCC LOGO.png" alt="logo_avaliatcc" height="60">
             </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-3 align-items-center anime-start">
+                <ul class="navbar-nav align-items-center gap-3">
                     <li class="nav-item">
                         <a class="nav-link active fw-bold text-primary" href="dashboard_admin.html">Home</a>
                     </li>
@@ -27,22 +106,24 @@
                         <a class="nav-link text-secondary" href="principal.html">Bancas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="Relatorios.html">Relatórios</a>
+                        <a class="nav-link text-secondary" href="relatorios.html">Relatórios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary fw-bold rounded-pill px-4" href="index.html">Sair</a>
+                    <li class="nav-item ms-md-2">
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="index.html" class="btn btn-sm btn-custom-light rounded-pill px-3 fw-bold">Sair</a>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-5 pt-5 pb-5">
         
-        <div class="row mb-4 anime-start">
+        <div class="row mb-4 pt-3 anime-start">
             <div class="col-12">
-                <h3 class="fw-bold text-secondary">Olá, Coordenador!</h3>
-                <p class="text-muted">Aqui está o resumo das bancas e atividades recentes.</p>
+                <h3 class="fw-bold text-dark mb-1">Painel do Coordenador</h3>
+                <p class="text-muted small">Visão geral das atividades acadêmicas e defesas.</p>
             </div>
         </div>
 
@@ -51,14 +132,14 @@
                 <div class="card card-glass h-100 p-3 border-0">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.8rem;">Bancas Agendadas</h6>
+                            <h6 class="text-muted text-uppercase mb-2 small fw-bold">Bancas Agendadas</h6>
                             <h2 class="fw-bold text-primary mb-0">12</h2>
                         </div>
-                        <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle p-3">
+                        <div class="bg-primary-soft rounded-circle p-3">
                             <i class='bx bx-calendar-event fs-3'></i>
                         </div>
                     </div>
-                    <small class="text-success fw-bold mt-3 d-block"><i class='bx bx-up-arrow-alt'></i> 2 esta semana</small>
+                    <small class="text-success fw-bold mt-3 d-block small"><i class='bx bx-up-arrow-alt'></i> 2 esta semana</small>
                 </div>
             </div>
 
@@ -66,14 +147,14 @@
                 <div class="card card-glass h-100 p-3 border-0">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.8rem;">Pendentes de Validação</h6>
+                            <h6 class="text-muted text-uppercase mb-2 small fw-bold">Pendentes Validação</h6>
                             <h2 class="fw-bold text-warning mb-0">3</h2>
                         </div>
-                        <div class="icon-box bg-warning bg-opacity-10 text-warning rounded-circle p-3">
+                        <div class="bg-warning-soft rounded-circle p-3">
                             <i class='bx bx-time-five fs-3'></i>
                         </div>
                     </div>
-                    <small class="text-muted mt-3 d-block">Requer atenção do gestor</small>
+                    <small class="text-muted mt-3 d-block small">Requer atenção</small>
                 </div>
             </div>
 
@@ -81,14 +162,14 @@
                 <div class="card card-glass h-100 p-3 border-0">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.8rem;">Ouvintes Cadastrados</h6>
+                            <h6 class="text-muted text-uppercase mb-2 small fw-bold">Ouvintes Totais</h6>
                             <h2 class="fw-bold text-success mb-0">45</h2>
                         </div>
-                        <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle p-3">
+                        <div class="bg-success-soft rounded-circle p-3">
                             <i class='bx bx-group fs-3'></i>
                         </div>
                     </div>
-                    <small class="text-muted mt-3 d-block">Total no semestre</small>
+                    <small class="text-muted mt-3 d-block small">Total no semestre</small>
                 </div>
             </div>
         </div>
@@ -98,50 +179,51 @@
             <div class="col-lg-8 anime-start" style="transition-delay: 0.4s;">
                 <div class="card card-glass border-0 p-4 h-100">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="fw-bold mb-0">Próximas Defesas</h5>
-                        <a href="principal.html" class="btn btn-sm btn-outline-primary rounded-pill">Ver todas</a>
+                        <h5 class="fw-bold mb-0 text-primary">Próximas Defesas</h5>
+                        <a href="principal.html" class="btn btn-sm btn-outline-primary rounded-pill px-3">Ver todas</a>
                     </div>
 
                     <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                        <div class="date-box bg-light rounded p-2 text-center me-3 shadow-sm" style="min-width: 60px;">
-                            <span class="d-block fw-bold text-primary">15</span>
-                            <small class="text-uppercase fw-bold" style="font-size: 0.7rem;">DEZ</small>
+                        <div class="date-box rounded p-2 text-center me-3 shadow-sm" style="min-width: 60px;">
+                            <span class="d-block fw-bold text-primary fs-5">15</span>
+                            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.65rem;">DEZ</small>
                         </div>
                         <div class="flex-grow-1 border-end-md pe-3">
-                            <h6 class="fw-bold mb-1">Sistema Web para Gestão de Bancas</h6> <p class="text-muted mb-0 small"><i class='bx bx-user'></i> Denis Macias Veiga &bull; <i class='bx bx-id-card'></i> Orientador: Felipe Dellê</p>
+                            <h6 class="fw-bold mb-1 text-dark">Gestão de Bancas Avaliadoras</h6>
+                            <p class="text-muted mb-0 small"><i class='bx bx-user'></i> Denis Macias &bull; Orientador: Felipe Dellê</p>
                         </div>
                         <div class="d-none d-md-block ps-3 text-end" style="min-width: 100px;">
-                            <span class="badge bg-primary bg-opacity-10 text-primary mb-1">19:00</span>
+                            <span class="badge bg-primary-soft mb-1">19:00</span>
                             <small class="d-block text-muted">Sala 104</small>
                         </div>
                     </div>
 
                     <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                        <div class="date-box bg-light rounded p-2 text-center me-3 shadow-sm" style="min-width: 60px;">
-                            <span class="d-block fw-bold text-primary">16</span>
-                            <small class="text-uppercase fw-bold" style="font-size: 0.7rem;">DEZ</small>
+                        <div class="date-box rounded p-2 text-center me-3 shadow-sm" style="min-width: 60px;">
+                            <span class="d-block fw-bold text-primary fs-5">16</span>
+                            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.65rem;">DEZ</small>
                         </div>
                         <div class="flex-grow-1 border-end-md pe-3">
-                            <h6 class="fw-bold mb-1">Segurança em Redes</h6>
-                            <p class="text-muted mb-0 small"><i class='bx bx-user'></i> Ana Carolina &bull; <i class='bx bx-id-card'></i> Orientador: José Marcondes</p>
+                            <h6 class="fw-bold mb-1 text-dark">Segurança em Redes</h6>
+                            <p class="text-muted mb-0 small"><i class='bx bx-user'></i> Ana Carolina &bull; Orientador: José Marcondes</p>
                         </div>
                         <div class="d-none d-md-block ps-3 text-end" style="min-width: 100px;">
-                            <span class="badge bg-primary bg-opacity-10 text-primary mb-1">20:30</span>
+                            <span class="badge bg-primary-soft mb-1">20:30</span>
                             <small class="d-block text-muted">Auditório</small>
                         </div>
                     </div>
 
                     <div class="d-flex align-items-center">
-                        <div class="date-box bg-light rounded p-2 text-center me-3 shadow-sm" style="min-width: 60px;">
-                            <span class="d-block fw-bold text-primary">17</span>
-                            <small class="text-uppercase fw-bold" style="font-size: 0.7rem;">DEZ</small>
+                        <div class="date-box rounded p-2 text-center me-3 shadow-sm" style="min-width: 60px;">
+                            <span class="d-block fw-bold text-primary fs-5">17</span>
+                            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.65rem;">DEZ</small>
                         </div>
                         <div class="flex-grow-1 border-end-md pe-3">
-                            <h6 class="fw-bold mb-1">Lógica de Programação na Educação</h6>
-                            <p class="text-muted mb-0 small"><i class='bx bx-user'></i> Marcondes Machado &bull; <i class='bx bx-id-card'></i> Orientador: Felipe Alencar</p>
+                            <h6 class="fw-bold mb-1 text-dark">Lógica na Educação</h6>
+                            <p class="text-muted mb-0 small"><i class='bx bx-user'></i> Marcondes Machado &bull; Orientador: Felipe Alencar</p>
                         </div>
                         <div class="d-none d-md-block ps-3 text-end" style="min-width: 100px;">
-                            <span class="badge bg-primary bg-opacity-10 text-primary mb-1">18:00</span>
+                            <span class="badge bg-primary-soft mb-1">18:00</span>
                             <small class="d-block text-muted">Sala 105</small>
                         </div>
                     </div>
@@ -151,34 +233,38 @@
 
             <div class="col-lg-4 anime-start" style="transition-delay: 0.5s;">
                 <div class="card card-glass border-0 p-4 h-100">
-                    <h5 class="fw-bold mb-4">Ações Rápidas</h5>
+                    <h5 class="fw-bold mb-4 text-dark">Ações Rápidas</h5>
                     <div class="d-grid gap-3">
-                        <button onclick="window.location.href='principal.html'" class="btn btn-custom-primary d-flex align-items-center justify-content-center gap-2">
+                        <button onclick="window.location.href='principal.html'" class="btn btn-custom-primary d-flex align-items-center justify-content-center gap-2 py-2 rounded-pill fw-bold shadow-sm">
                             <i class='bx bx-plus-circle fs-5'></i> Agendar Nova Banca
                         </button>
 
-                        <button class="btn btn-light text-primary fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2" style="border: 1px solid #e9ecef;">
+                        <button class="btn btn-light text-primary fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2 rounded-pill border" style="background: white;">
                             <i class='bx bx-file fs-5'></i> Gerar Ata de Defesa
                         </button>
-                        <button class="btn btn-light text-secondary fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2" style="border: 1px solid #e9ecef;">
+                        <button class="btn btn-light text-secondary fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2 rounded-pill border" style="background: white;">
                             <i class='bx bx-certification fs-5'></i> Emitir Certificados
                         </button>
                     </div>
                     
                     <hr class="my-4 text-muted opacity-25">
                     
-                    <h6 class="text-muted mb-3" style="font-size: 0.85rem;">Status do Sistema</h6>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <small>Bancas Concluídas</small>
-                        <small class="fw-bold">85%</small>
+                    <h6 class="text-muted mb-3 small fw-bold text-uppercase">Status do Semestre</h6>
+                    <div class="d-flex justify-content-between align-items-center mb-2 small">
+                        <span>Bancas Concluídas</span>
+                        <span class="fw-bold text-success">85%</span>
                     </div>
-                    <div class="progress" style="height: 8px;">
+                    <div class="progress" style="height: 6px;">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="text-center py-3 border-top bg-white fixed-bottom shadow-sm">
+        <p class="text-muted small mb-0">© 2026 AvaliaTCC - Gerenciamento de Bancas.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>

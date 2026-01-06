@@ -8,23 +8,45 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="imagens/AvaliaTCC icon.png">
 
     <style>
         /* --- GERAL --- */
         body {
-            background-color: #f4f6f8;
+            background-color: #f8f9fa; /* Fundo padrão */
             font-family: 'Segoe UI', sans-serif;
-            padding-top: 90px;
-            overflow-x: hidden;
         }
 
-        /* --- ESTILO DOS CARDS --- */
+        /* --- NAVBAR (Padronizada) --- */
+        .navbar-custom {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Botão Sair (Azul claro) */
+        .btn-custom-light {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-light:hover {
+            background-color: #bae6fd;
+            color: #0c4a6e;
+        }
+
+        /* --- CARD GLASS (Padronizado) --- */
         .card-glass {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        .card-glass:hover {
+            transform: translateY(-3px);
         }
 
         /* --- ANIMAÇÕES --- */
@@ -33,7 +55,6 @@
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
         .anime-end {
             opacity: 1;
             transform: translateY(0);
@@ -50,6 +71,11 @@
             font-size: 1.5rem;
         }
 
+        /* Ícones coloridos */
+        .bg-primary-soft { background-color: #f0f9ff !important; color: #0369a1 !important; }
+        .bg-warning-soft { background-color: #fffbeb !important; color: #b45309 !important; }
+        .bg-success-soft { background-color: #f0fdf4 !important; color: #15803d !important; }
+
         .filter-select {
             background-color: white;
             border: 1px solid #e9ecef;
@@ -58,6 +84,20 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
             outline: none;
             color: #555;
+        }
+
+        /* Botão Primário (Azul forte) */
+        .btn-custom-primary {
+            background-color: #0ea5e9;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            background-color: #0284c7;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
         }
 
         /* --- CUSTOMIZAÇÃO TABELA --- */
@@ -77,16 +117,19 @@
         }
     </style>
 </head>
-<body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm py-0 anime-start">
+<body style="padding-bottom: 80px;"> <nav class="navbar navbar-expand-lg fixed-top navbar-custom shadow-sm py-2 anime-start">
         <div class="container-fluid px-5">
-            <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2 anime-start" href="index.html">
-                <img src="imagens/AvaliaTCC LOGO.png" alt="AvaliaTCC" height="70" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <span style="display:none;"><i class='bx bxs-graduation'></i> AvaliaTCC</span>
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="imagens/AvaliaTCC LOGO.png" alt="AvaliaTCC" height="60">
             </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-3 align-items-center anime-start">
+                <ul class="navbar-nav align-items-center gap-3">
                     <li class="nav-item">
                         <a class="nav-link text-secondary" href="dashboard_admin.html">Home</a>
                     </li>
@@ -96,20 +139,22 @@
                     <li class="nav-item">
                         <a class="nav-link active fw-bold text-primary" href="#">Relatórios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary fw-bold rounded-pill px-4" href="index.html">Sair</a>
+                    <li class="nav-item ms-md-2">
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="index.html" class="btn btn-sm btn-custom-light rounded-pill px-3 fw-bold">Sair</a>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4 pb-5">
+    <div class="container mt-5 pt-5 pb-5">
         
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 anime-start">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 pt-3 anime-start">
             <div>
                 <h3 class="fw-bold text-dark mb-1">Painel de Relatórios</h3>
-                <p class="text-muted mb-0">Estatísticas do semestre 2024.2</p>
+                <p class="text-muted mb-0 small">Estatísticas do semestre 2024.2</p>
             </div>
             <div class="d-flex gap-2 mt-3 mt-md-0">
                 <select class="filter-select">
@@ -117,7 +162,7 @@
                     <option>2024.1</option>
                     <option>2023.2</option>
                 </select>
-                <button class="btn btn-primary rounded-pill px-3 fw-bold shadow-sm d-flex align-items-center gap-2">
+                <button class="btn btn-custom-primary rounded-pill px-3 fw-bold shadow-sm d-flex align-items-center gap-2">
                     <i class='bx bxs-file-pdf'></i> Exportar PDF
                 </button>
             </div>
@@ -132,7 +177,7 @@
                             <h2 class="fw-bold text-dark mt-2 mb-0">42</h2>
                             <small class="text-success fw-bold"><i class='bx bx-trending-up'></i> +12% vs. anterior</small>
                         </div>
-                        <div class="stat-icon bg-primary bg-opacity-10 text-primary">
+                        <div class="stat-icon bg-primary-soft rounded-circle">
                             <i class='bx bx-bar-chart-alt-2'></i>
                         </div>
                     </div>
@@ -146,7 +191,7 @@
                             <h2 class="fw-bold text-dark mt-2 mb-0">94%</h2>
                             <small class="text-muted">3 reprovações</small>
                         </div>
-                        <div class="stat-icon bg-success bg-opacity-10 text-success">
+                        <div class="stat-icon bg-success-soft rounded-circle">
                             <i class='bx bx-check-shield'></i>
                         </div>
                     </div>
@@ -160,7 +205,7 @@
                             <h2 class="fw-bold text-dark mt-2 mb-0">8.7</h2>
                             <small class="text-warning fw-bold"><i class='bx bx-minus'></i> Estável</small>
                         </div>
-                        <div class="stat-icon bg-warning bg-opacity-10 text-warning">
+                        <div class="stat-icon bg-warning-soft rounded-circle">
                             <i class='bx bx-notepad'></i>
                         </div>
                     </div>
@@ -220,7 +265,7 @@
                                     <td>Eng. Software</td>
                                     <td>18 Nov</td>
                                     <td class="fw-bold">9.5</td>
-                                    <td><span class="badge bg-success bg-opacity-10 text-success rounded-pill">Aprovado</span></td>
+                                    <td><span class="badge bg-success-soft rounded-pill">Aprovado</span></td>
                                     <td><button class="btn btn-sm btn-outline-secondary rounded-pill"><i class='bx bx-download'></i> Ata</button></td>
                                 </tr>
                                 <tr>
@@ -233,7 +278,7 @@
                                     <td>Eng. Civil</td>
                                     <td>17 Nov</td>
                                     <td class="fw-bold">8.2</td>
-                                    <td><span class="badge bg-success bg-opacity-10 text-success rounded-pill">Aprovado</span></td>
+                                    <td><span class="badge bg-success-soft rounded-pill">Aprovado</span></td>
                                     <td><button class="btn btn-sm btn-outline-secondary rounded-pill"><i class='bx bx-download'></i> Ata</button></td>
                                 </tr>
                                 <tr>
@@ -259,6 +304,10 @@
 
     </div>
 
+    <footer class="text-center py-3 border-top bg-white fixed-bottom shadow-sm">
+        <p class="text-muted small mb-0">© 2026 AvaliaTCC - Gerenciamento de Bancas.</p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
@@ -280,7 +329,7 @@
                     datasets: [{
                         label: 'Bancas Realizadas',
                         data: [12, 19, 8, 5, 10],
-                        backgroundColor: '#0d6efd',
+                        backgroundColor: '#0ea5e9', // Azul primário do tema
                         borderRadius: 6,
                         barThickness: 30
                     }]
@@ -306,7 +355,7 @@
                     labels: ['Aprovados', 'Reprovados', 'Pendentes'],
                     datasets: [{
                         data: [35, 3, 4],
-                        backgroundColor: ['#198754', '#dc3545', '#ffc107'],
+                        backgroundColor: ['#15803d', '#dc3545', '#b45309'], // Cores do tema (verde, vermelho, laranja)
                         borderWidth: 0,
                         hoverOffset: 4
                     }]

@@ -59,15 +59,15 @@
                             <p class="text-muted small">Insira suas credenciais para acessar o portal.</p>
                         </div>
 
-                        <form action="dashboard_admin.html" method="GET">
+                        <form id="formLogin">
 
                             <div class="mb-3">
-                                <label class="form-label small fw-bold text-secondary ps-1">Login</label>
+                                <label class="form-label small fw-bold text-secondary ps-1">Login (E-mail)</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-white border-end-0 text-primary">
                                         <i class='bx bx-user'></i>
                                     </span>
-                                    <input type="text" class="form-control border-start-0 ps-0" placeholder="Digite seu acesso" required>
+                                    <input type="email" class="form-control border-start-0 ps-0" id="email" placeholder="exemplo@gmail.com" required>
                                 </div>
                             </div>
 
@@ -89,13 +89,17 @@
                                     <input class="form-check-input" type="checkbox" id="remember">
                                     <label class="form-check-label text-muted" for="remember">Lembrar-me</label>
                                 </div>
-                                <a href="recuperacao.html" class="text-decoration-none fw-bold">Esqueci a senha</a>
+                                <a href="recuperaçao.html" class="text-decoration-none fw-bold">Esqueci a senha</a>
                             </div>
 
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-primary rounded-pill py-2 fw-bold shadow-sm hover-scale">
                                     ACESSAR SISTEMA
                                 </button>
+                            </div>
+
+                            <div id="errorMsg" class="alert alert-danger py-2 extra-small text-center d-none" role="alert">
+                                <i class='bx bxs-error-circle align-middle'></i> E-mail ou senha incorretos.
                             </div>
 
                             <div class="text-center">
@@ -110,9 +114,12 @@
                 </div>
 
                 <div class="text-center mt-4 anime-start" style="transition-delay: 0.2s;">
-                    <p class="text-muted small opacity-75">
-                        © 2026 AvaliaTCC - Sistema de Gerenciamento de Bancas Avaliadoras.
-                    </p>
+                    <div class="alert alert-light opacity-75 d-inline-block text-start small border shadow-sm">
+                        <strong class="d-block mb-1 text-center text-muted">🧪 Credenciais de Teste:</strong>
+                        <div>👨‍🎓 <b>aluno@gmail.com</b> / <code>aluno123</code></div>
+                        <div>👨‍🏫 <b>prof@gmail.com</b> / <code>prof123</code></div>
+                        <div>👔 <b>coord@gmail.com</b> / <code>admin123</code></div>
+                    </div>
                 </div>
 
             </div>
@@ -122,11 +129,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Animação de entrada
             setTimeout(() => {
                 document.querySelectorAll('.anime-start')
                     .forEach(el => el.classList.add('anime-end'));
             }, 100);
 
+            // Toggle de Senha
             const toggle = document.querySelector('#togglePassword');
             const password = document.querySelector('#senha');
             const icon = toggle.querySelector('i');
@@ -137,7 +146,58 @@
                 icon.classList.toggle('bx-show');
                 icon.classList.toggle('bx-hide');
             });
+
+            // LÓGICA DE LOGIN (Redirecionamento)
+            const form = document.getElementById('formLogin');
+            const errorMsg = document.getElementById('errorMsg');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Impede o envio padrão do formulário
+
+                const email = document.getElementById('email').value.trim();
+                const senha = document.getElementById('senha').value.trim();
+
+                // Lógica de verificação
+                if (email === 'aluno@gmail.com' && senha === 'aluno123') {
+                    // Redireciona para Painel do Aluno
+                    window.location.href = 'dashboard_aluno.html';
+                } 
+                else if (email === 'prof@gmail.com' && senha === 'prof123') {
+                    // Redireciona para Painel do Professor
+                    window.location.href = 'dashboard_professor.html';
+                } 
+                else if (email === 'coord@gmail.com' && senha === 'admin123') {
+                    // Redireciona para Painel do Coordenador
+                    window.location.href = 'dashboard_admin.html'; // Usando o nome da página principal que fizemos antes
+                } 
+                else {
+                    // Mostra erro
+                    errorMsg.classList.remove('d-none');
+                    // Treme o card (efeito visual opcional)
+                    document.querySelector('.card-glass').classList.add('shake');
+                    setTimeout(() => document.querySelector('.card-glass').classList.remove('shake'), 500);
+                }
+            });
         });
     </script>
+    
+    <style>
+        .shake {
+            animation: shake 0.5s;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+    </style>
 </body>
 </html>
