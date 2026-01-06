@@ -98,14 +98,14 @@ Design limpo e acessível para que alunos e comunidade externa consultem as data
 
 1. **Clone o repositório:**
 ```bash
-git clone https://github.com/seu-usuario/avaliatcc-frontend.git
+https://github.com/brnz4n/Gestao-bancas-tcc
 
 ```
 
 
 2. **Acesse a pasta:**
 ```bash
-cd avaliatcc-frontend
+cd Gestao-bancas-tcc
 
 ```
 
