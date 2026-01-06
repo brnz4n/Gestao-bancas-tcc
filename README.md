@@ -133,8 +133,7 @@ Utilize os dados abaixo na tela de `login.html` para navegar entre os diferentes
 
 Este projeto utiliza como base teórica os requisitos levantados no artigo:
 
-* 
-**Obra:** Desenvolvimento de Sistema Web para Gerenciamento de Bancas Avaliadoras de Trabalho de Conclusão de Curso.
+* **Obra:** Desenvolvimento de Sistema Web para Gerenciamento de Bancas Avaliadoras de Trabalho de Conclusão de Curso.
 
 
 * **Autores:** Denis Macias Veiga, Felipe José Dellê.
